@@ -27,12 +27,18 @@ app.post("/", function(req,res){
     }]
   };
   let jsonData = JSON.stringify(data);
-  const url = 'https://us6.api.mailchimp.com/3.0/lists/627b540a99' ;
+  const url = 'https://us6.api.mailchimp.com/3.0/lists/627b540a9' ;
   const option ={
     method: "POST",
     auth :"ardhendu:652c13d979648ec152762987f4f52898-us6"
   }
   const request = https.request(url, option , function(response){
+    if (response.statusCode===200){
+      res.sendFile(__dirname+"/success.html");
+    }
+    else{
+      res.sendFile(__dirname+"/failure.html");
+    }
     response.on("data",function(data){
       console.log(JSON.parse(data));
     })
@@ -40,6 +46,10 @@ app.post("/", function(req,res){
   request.write(jsonData);
   request.end();
 
+});
+app.post("/failure",function(req,res){
+
+  res.redirect("/");
 });
 
 
