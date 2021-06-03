@@ -27,7 +27,7 @@ app.post("/", function(req,res){
     }]
   };
   let jsonData = JSON.stringify(data);
-  const url = 'https://us6.api.mailchimp.com/3.0/lists/627b540a9' ;
+  const url = 'https://us6.api.mailchimp.com/3.0/lists/627b540a99' ;
   const option ={
     method: "POST",
     auth :"ardhendu:652c13d979648ec152762987f4f52898-us6"
@@ -53,7 +53,7 @@ app.post("/failure",function(req,res){
 });
 
 
-app.listen("4040",function(){
+app.listen(process.env.PORT || 4040,function(){
   console.log("Server is runnning at port 4040");
 })
 
