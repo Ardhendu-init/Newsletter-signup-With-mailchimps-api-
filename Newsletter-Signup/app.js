@@ -53,7 +53,7 @@ app.post("/failure",function(req,res){
 });
 
 
-app.listen(process.env.PORT || 4040,function(){
+app.listen(process.env.PORT,function(){
   console.log("Server is runnning at port 4040");
 })
 
